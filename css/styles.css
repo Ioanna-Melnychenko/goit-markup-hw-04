@@ -32,6 +32,7 @@ body {
     padding-top: 24px;
     padding-bottom: 24px;
     display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link:hover {
     color: #404BBF;
@@ -62,6 +63,21 @@ ul>li {
 .logostud {
     color: #2E2F42;
 }
+.link.first {
+    position: relative;
+    color: #404BBF;
+}
+.first::after {
+    display: block;
+    content: '';
+    border-radius: 2px;
+    width: 48px;
+    height: 4px;
+    background-color: #404BBF;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
 .address {
     font-style: normal;
     align-items: center
@@ -83,6 +99,7 @@ ul>li {
 }
 .header {
     border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 header .container {
     display: flex;
@@ -90,12 +107,16 @@ header .container {
 }
 
 .herobaner {
-    /*background-color: #2E2F42;*/
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #2E2F42;
     padding: 188px 0;
     background-image: 
-       url('D:\CoIT Studium\Projects-hw\goit-markup-hw-04\images\people-office.jpg'),
-       linear-gradient(to bottom, rgba(46, 47, 66, 0.7))
-       
+       linear-gradient(to bottom, rgba(46, 47, 66, 0.7)),
+       url('../images/people-office.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;  
 }
 .herobaner-title {
     font-weight: 700;
@@ -124,6 +145,7 @@ header .container {
     border-radius: 4px;
     margin-right: auto;
     margin-left: auto;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .herobaner-button:hover{
@@ -152,24 +174,16 @@ header .container {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
-.advantages-antena {
-
-}
-.advantages-clock {
-
-}
-.advantages-diagram {
-
-}
-.advantages-astronaut {
-
-}
 .adv-svg {
-    padding: 24px 100px;
-    /*background-color: #8E8F99;*/
+    width: 264px;
+    height: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4FD;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    /*box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);*/
+    margin-bottom: 8px;
 }
 .advantages-header {
     font-size: 20px;
@@ -220,6 +234,7 @@ header .container {
     align-items: center;
     width: calc((100% - 72px) / 4);
     border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 .team-box {
     padding-top: 32px;
@@ -232,14 +247,24 @@ header .container {
     margin-top: 8px;
     justify-content: center;
 }
-.team-box-cosial li {
-    padding: 12px;
-    background-color: #4D5AE5;
-    border-radius: 50%;
+.team-box-cosial-item {
     width: 40px;
     height: 40px;
 }
-.team-box-cosial li:hover {
+.cosial-links {
+    background-color: #4D5AE5;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cosial-links:hover {
+    background-color: #404BBF;
+}
+.cosial-links:focus {
     background-color: #404BBF;
 }
 .portfolio {
@@ -263,6 +288,7 @@ header .container {
 }
 .portfolio-item {
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-item-title {
     font-weight: 500;
@@ -276,6 +302,32 @@ header .container {
     padding: 32px 16px;
     border: 1px solid #e7e9fc;
     border-top: none;
+}
+.portfolio-overlay-box {
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #F4F4FD;
+    padding: 40px 32px;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover .portfolio-overlay-text {
+    transform: translateY(0%); 
+}
+.portfolio-item:hover {
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 .footer {
     background-color: #2E2F42;
@@ -305,16 +357,30 @@ header .container {
     letter-spacing: 0.02em;
     margin-bottom: 16px;
 }
-.footer-social-list {
-    display: flex; 
+.footer-log-box {
+    margin-right: 120px;
 }
-.footer-social-list li {
-    background-color: #4D5AE5;
+.footer-box-cosial {
+    display: flex; 
     gap: 24px;
+}
+.footer-cosial-links {
+    background-color: #4D5AE5;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
-    padding: 8px;
-    width: calc((100% - 48) / 4); 
+    align-items: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-cosial-links:hover {
+   background-color: #31D0AA; 
+}
+.footer-cosial-links:focus {
+    background-color: #31D0AA;
+}
+.footer-container {
+    display: flex;
+    align-items: baseline;
 }
