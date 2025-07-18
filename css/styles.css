@@ -88,11 +88,14 @@ header .container {
     display: flex;
     justify-content: space-between;
 }
+
 .herobaner {
+    /*background-color: #2E2F42;*/
     padding: 188px 0;
-}
-.herobaner {
-    background-color: #2E2F42;
+    background-image: 
+       url('D:\CoIT Studium\Projects-hw\goit-markup-hw-04\images\people-office.jpg'),
+       linear-gradient(to bottom, rgba(46, 47, 66, 0.7))
+       
 }
 .herobaner-title {
     font-weight: 700;
@@ -149,6 +152,25 @@ header .container {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
+.advantages-antena {
+
+}
+.advantages-clock {
+
+}
+.advantages-diagram {
+
+}
+.advantages-astronaut {
+
+}
+.adv-svg {
+    padding: 24px 100px;
+    /*background-color: #8E8F99;*/
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    /*box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);*/
+}
 .advantages-header {
     font-size: 20px;
     font-weight: 500;
@@ -203,6 +225,22 @@ header .container {
     padding-top: 32px;
     padding-bottom: 32px;
     text-align: center;
+}
+.team-box-cosial {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    justify-content: center;
+}
+.team-box-cosial li {
+    padding: 12px;
+    background-color: #4D5AE5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.team-box-cosial li:hover {
+    background-color: #404BBF;
 }
 .portfolio {
     padding-top: 120px;
@@ -259,4 +297,24 @@ header .container {
 }
 .footer-text {
     max-width: 264px;
+}
+.footer-social-text {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+.footer-social-list {
+    display: flex; 
+}
+.footer-social-list li {
+    background-color: #4D5AE5;
+    gap: 24px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 8px;
+    width: calc((100% - 48) / 4); 
 }
